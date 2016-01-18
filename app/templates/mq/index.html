@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="mq" ng-controller="queue">
+    <head>
+        <meta charset="UTF-8">
+        <title>自由科技</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 引入 Bootstrap -->
+        <link href="{{ url_for('.static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+  	        <div class="row-fluid">
+  	        	  <div class="span12">
+  	        	  	  <div class="page-header">
+  	        	  	  	  <h1>
+  	        	  	  	  	RabbitMQ监控平台
+  	        	  	  	  </h1>
+  	        	  	  </div>
+  	        	  	  <div class="btn-group">
+  		  		  <select onchange="location='mq' + '?' + 'addr=' + this.options[this.selectedIndex].value">
+  		  		  	{% for addr in addrList %}
+  		  		  		<option value="{{addr}}">{{addr}}</option>
+  		  		  	{% endfor %}
+  		  		  </select>
+  		  		  <br>
+  		  	 </div>
+  	        	 <table class="table table-bordered">
+  	        	 	  <thead>
+  	        	 	  	  <tr>
+  	        	 	  	  	  <th>
+  	        	 	  	  	  	编号
+  	        	 	  	  	  </th>
+  	        	 	  	  	  <th>
+  	        	 	  	  	  	队列
+  	        	 	  	  	  </th>
+  	        	 	  	  	  <th>
+  	        	 	  	  	  	邮箱
+  	        	 	  	  	  </th>
+  	        	 	  	  	  <th>
+  	        	 	  	  	    消息堆积数量
+  	        	 	  	  	  </th>
+  	        	 	  	  	  <th>
+  	        	 	  	  	  	消息堆积阀值
+  	        	 	  	  	  </th>
+  	        	 	  	  </tr>
+  	        	 	  </thead>
+  	        	 	  <tbody>
+        	 	  	  	{% for queue in queues %}
+        	 	  	  		<tr>
+        	 	  	  			<td>{{ queue.index}} </td>
+        	 	  	  			<td id="queue-{{ queue.index}}">{{ queue.queue}}</td>
+        	 	  	  			<td><input type="text" id="mailList-{{ queue.index }}" size="80" placeholder="多个邮箱之间用逗号分隔" value="{{ queue.mailList }}"></td>
+        	 	  	  			<td>{{ queue.msgTotal }}</td>
+        	 	  	  			<td><input type="text" id="msgTotalMax-{{ queue.index }}" value="{{ queue.msgTotalMax }}"></td>
+        	 	  	  			<td><button id="button-{{ queue.index}}" ng-click="subQueue({{ queue.index}})">订阅</button></td>
+        	 	  	  		</tr>
+        	 	  	  	{% endfor %}
+  	        	 	  </tbody>
+  	        	 </table> 
+  	        	  </div>
+  	        </div>
+        </div>
+    
+        <script src="{{ url_for('.static', filename = 'js/third/jquery.min.js')}}"></script>
+        <script src="{{ url_for('.static', filename = 'js/third/bootstrap.min.js')}}"></script>
+        <script src="{{ url_for('.static', filename = 'js/third/angular.min.js')}}"></script>
+        <script src="{{ url_for('.static', filename = 'js/mq/queue.js')}}"></script>
+    </body>
+</html>
