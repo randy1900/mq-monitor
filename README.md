@@ -26,9 +26,9 @@
   
   [mq]
   ; mq地址、用户名、密码
-  addr=58.215.141.111:15672
-  username=itugomq
-  password=server1mqphp
+  addr=58.215.141.110:15672
+  username=test
+  password=test
   
   [mongo]
   ; 监控数据采用mongo存储
