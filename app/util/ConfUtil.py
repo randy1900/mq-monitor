@@ -47,9 +47,6 @@ def getSmtpServer():
 def getSmtpPort():
     return int(parser.get('mail', 'smtpPort').strip())
 
-def getPostUrl():
-    return parser.get('mail', 'postUrl').strip()
-
 def getCycle():
     return int(parser.get('global', 'cycle').strip())
 

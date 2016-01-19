@@ -1,0 +1,7 @@
+.project
+.pydevproject
+.settings
+*.pyc
+*.log
+*.pid
+*.tar.gz
