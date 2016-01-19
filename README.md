@@ -44,4 +44,4 @@
   ```
 1. 运行脚本：sh control.sh start/stop/restart/status
 1. 访问localhost:5000订阅队列。
-
+![](https://raw.githubusercontent.com/randy1900/mq-monitor/master/screenshots/subscribe.png)
