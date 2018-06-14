@@ -1,7 +1,8 @@
 .project
 .pydevproject
 .settings
-*.pyc
 *.log
 *.pid
 *.tar.gz
+.idea/
+*.pyc

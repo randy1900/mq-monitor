@@ -16,7 +16,6 @@ fromAddr = ConfUtil.getFromAddr()
 smtpServer = ConfUtil.getSmtpServer()
 smtpPort = ConfUtil.getSmtpPort()
 password = ConfUtil.getMailPassword()
-url = ConfUtil.getPostUrl()
 
 def sendMail(toAddr, content):
     server = smtplib.SMTP(smtpServer, smtpPort)
